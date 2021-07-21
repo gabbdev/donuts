@@ -38,7 +38,7 @@ if (substr(sprintf('%o', fileperms('database.json')), -4) !== "0600") {
 }
 }
 
-function get_($tag, $isprivate=false) {
+function d_get($tag, $isprivate=false) {
 $db = json_decode(file_get_contents('database.json'));
 donutfunction_checkperm();
 if ($isprivate) {
@@ -49,7 +49,7 @@ return $db->{$tag};
 
 
 
-function store_($tag, $value,$isprivate=false) {
+function d_store($tag, $value,$isprivate=false) {
    $db = json_decode(file_get_contents('database.json'));
 if ($isprivate) {
   $tag = donutfunction_getkey(). $tag;
@@ -60,7 +60,7 @@ if ($isprivate) {
     return true;
 }
 
-function delete_($tag,$isprivate=false) {
+function d_delete($tag,$isprivate=false) {
    $db = json_decode(file_get_contents('database.json'));
 if ($isprivate) {
   $tag = donutfunction_getkey(). $tag;
